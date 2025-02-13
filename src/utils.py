@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
 
-def excecute_plt_code(code: str, df:pd.DataFrame):
+
+def execute_plt_code(code: str, df: pd.DataFrame):
     """Execute the passing code to plot figure
 
     Args:
@@ -12,12 +13,20 @@ def excecute_plt_code(code: str, df:pd.DataFrame):
     Returns:
         _type_: plt figure
     """
+
     try:
+        plt.clf()
         local_vars = {"plt": plt, "df": df}
+        code = code.strip()
+        if not code:
+            return None
+        
         compiled_code = compile(code, "<string>", "exec")
         exec(compiled_code, globals(), local_vars)
-        return plt.gcf()
-    
+
+        fig = plt.gcf()
+        return fig
+
     except Exception as e:
-        st.error(f"Error executing code: {str(e)}")
+        st.error(f"Error excuting plt code: {e}")
         return None
