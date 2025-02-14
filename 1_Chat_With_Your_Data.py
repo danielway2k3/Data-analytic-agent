@@ -124,19 +124,23 @@ def main():
     if uploaded_file is not None:
         try:
             # Read csv file
-            st.session_state.df = pd.read_csv(uploaded_file)
-            st.write("Data Preview:", st.session_state.df.head())
+            df = pd.read_csv(uploaded_file)
+            st.session_state.df = df
+            st.write("Data Preview:", df.head())
+            st.write(f"Total rows: {len(df)}")
 
             # Create data analytics agent to query data
             agent = create_pandas_dataframe_agent(
                 llm=llm, 
-                df = st.session_state.df,
+                df = df,
                 verbose=True, 
                 allow_dangerous_code=True,
                 return_intermediate_steps=True,
                 handle_parsing_errors=True,
-                extra_tools=get_data_analysis_tools(st.session_state.df),
                 agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+                prefix="""You are working with a pandas dataframe 'df' that contains the complete dataset.
+                Always use the provided 'df' and DO NOT create new sample dataframes.
+                The dataframe is already loaded and contains {num_rows} rows.""".format(num_rows=len(df)),
             )
             logger.info("### Successfully created data analytics agent ###")
 

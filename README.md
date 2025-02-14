@@ -1,61 +1,69 @@
-# data_analytics_pj
+# CSV Data Analysis Chatbot with Agent
+---
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+A conversational chatbot built using an intelligent Agent to assist users in analyzing CSV data files. The chatbot leverages natural language processing to understand user queries and performs data exploration, statistics calculation, and visualization tasks on CSV files.
 
-A short description of the project.
+## Project Overview
+---
 
-## Project Organization
+This project integrates an Agent-based chatbot with powerful data analysis libraries to:
+- Load and preview CSV files.
+- Compute basic statistics (mean, median, standard deviation, etc.).
+- Generate data visualizations (histograms, scatter plots, line charts, etc.).
+- Provide an interactive and conversational interface to guide users through data analysis.
 
-```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         src and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── src   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+## Tools and Technologies
+---
+
+- **LangChain**: Framework for building LLM-powered agents.
+- **Pandas**: Data manipulation and analysis.
+- **NumPy**: Numerical computations.
+- **Plotly/Matplotlib/Seaborn**: Data visualization.
+- **Streamlit** (optional): Web framework for interactive demos.
+- **GEMINI API**: For natural language processing and agent responses.
+
+## Demo
+---
+Agent helps analyze data with input query:
+![Demo agent analyze data](assets/images/img_3.png)
+![Demo agent analyze data](assets/images/img_2.png)
+Agent plot chart for visulization:
+![Demo agent plot chart](assets/images/img_1.png)
+
+## Installation
+---
+
+1. **Clone the repo:**
+```bash
+git clone https://github.com/danielway2k3/data_analytics.git
+cd data_analytics
 ```
 
---------
+2. **Create and activate a virtual environment:**
+```bash
+python -m env env
+# On Windows
+venv\Scripts\activate
+# On linux or MacOS
+source venv/bin/activate
+```
 
+3. **Install the project dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Configure environment variables:**
+    Creat file name .env in the root directory.
+    Add your Gemini API key in .env file:
+    ```
+    GOOGLE_API_KEY=your_gemini_api_key
+    ```
+
+## Running the Chatbot Locally:
+---
+
+Run:
+```bash
+streamlit run 1_Chat_With_Your_Data.py
+```
