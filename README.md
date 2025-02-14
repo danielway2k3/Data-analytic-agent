@@ -10,7 +10,7 @@ This project integrates an Agent-based chatbot with powerful data analysis libra
 - Load and preview CSV files.
 - Compute basic statistics (mean, median, standard deviation, etc.).
 - Generate data visualizations (histograms, scatter plots, line charts, etc.).
-- Provide an interactive and conversational interface to guide users through data analysis.
+- Provide an interactive and conversational interface with PygWalker.
 
 ## Tools and Technologies
 ---
@@ -26,9 +26,12 @@ This project integrates an Agent-based chatbot with powerful data analysis libra
 ---
 Agent helps analyze data with input query:
 ![Demo agent analyze data](assets/images/img_3.png)
-![Demo agent analyze data](assets/images/img_2.png)
+
 Agent plot chart for visulization:
 ![Demo agent plot chart](assets/images/img_1.png)
+
+Interactive with data by PygWalker:
+![Demo tool interactive with data](assets/images/img_5.png)
 
 ## Installation
 ---

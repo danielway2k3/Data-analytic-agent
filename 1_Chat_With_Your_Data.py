@@ -121,13 +121,12 @@ def main():
     if "history" not in st.session_state:
         st.session_state.history = []
 
+    # Read csv file
     if uploaded_file is not None:
         try:
-            # Read csv file
             df = pd.read_csv(uploaded_file)
             st.session_state.df = df
             st.write("Data Preview:", df.head())
-            st.write(f"Total rows: {len(df)}")
 
             # Create data analytics agent to query data
             agent = create_pandas_dataframe_agent(
