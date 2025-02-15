@@ -44,7 +44,7 @@ cd data_analytics
 
 2. **Create and activate a virtual environment:**
 ```bash
-python -m env env
+python -m venv venv
 # On Windows
 venv\Scripts\activate
 # On linux or MacOS
