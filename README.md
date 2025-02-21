@@ -38,7 +38,7 @@ Interactive with data by PygWalker:
 
 1. **Clone the repo:**
 ```bash
-git clone https://github.com/danielway2k3/data_analytic_agent.git
+git clone https://github.com/danielway2k3/Data-analytic-agent.git
 cd data_analytics
 ```
 
